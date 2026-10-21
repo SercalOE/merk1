@@ -1,4 +1,4 @@
--- Merkl · esquema inicial (MVP control de campañas)
+-- Merk1 · esquema inicial (MVP control de campañas)
 -- Convención: montos en numeric; fechas en date (hora de Guatemala); textos de catálogo en español.
 
 create extension if not exists pgcrypto;

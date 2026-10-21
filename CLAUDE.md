@@ -1,11 +1,11 @@
-# Merkl · reglas del proyecto
+# Merk1 · reglas del proyecto
 
-Merkl es el software de mercadeo de OE (Celasa GT, Celasa SV, Electroma, American, Logistik).
+Merk1 es el software de mercadeo de OE (Celasa GT, Celasa SV, Electroma, American, Logistik).
 El MVP reemplaza el control de campañas del Excel PRESUPUESTO 2026: se sube un plan mensual en Excel
-y Merkl arma el control de cada campaña con datos de Meta y Google (vía Porter) y CSV de otros medios.
+y Merk1 arma el control de cada campaña con datos de Meta y Google (vía Porter) y CSV de otros medios.
 
 ## Reglas que no se rompen
-1. **Solo lectura hacia las plataformas.** Merkl nunca crea, pausa ni modifica campañas, presupuestos ni anuncios.
+1. **Solo lectura hacia las plataformas.** Merk1 nunca crea, pausa ni modifica campañas, presupuestos ni anuncios.
    Los agentes proponen, el humano decide.
 2. **Sin datos personales.** Solo métricas de campañas. Nunca bases de leads, nombres, teléfonos ni correos de clientes,
    y nunca se envían a la API de Claude.
@@ -20,7 +20,7 @@ y Merkl arma el control de cada campaña con datos de Meta y Google (vía Porter
 ## Conceptos
 - **Línea del plan:** una fila del plan. Se identifica por `codigo` + mes. Ej. `ELE2609-007`.
 - **Código:** `EMP` + `AAMM` de nacimiento + consecutivo de 3 dígitos. Regex: `^[A-Z]{3}[0-9]{4}-[0-9]{3}$`.
-- **Nombre de campaña en la plataforma:** `CÓDIGO | Actividad | Medio | Objetivo`. Merkl solo lee el código del inicio.
+- **Nombre de campaña en la plataforma:** `CÓDIGO | Actividad | Medio | Objetivo`. Merk1 solo lee el código del inicio.
   Una línea puede tener varias campañas con el mismo código.
 - **Tipo de costo** (lo define el objetivo): `por_mil` (alcance, bumper, display), `por_unidad` (clics, mensajes, leads,
   compras), `sin_costo` (mailing; usa `proyectado_manual`).

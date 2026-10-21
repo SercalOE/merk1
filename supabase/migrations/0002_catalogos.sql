@@ -1,4 +1,4 @@
--- Merkl · catálogos iniciales (de la plantilla de carga)
+-- Merk1 · catálogos iniciales (de la plantilla de carga)
 insert into empresas (codigo, nombre, moneda) values
  ('CGT','Celasa Guatemala','GTQ'),('CSV','Celasa El Salvador','USD'),('ELE','Electroma','GTQ'),
  ('AME','American','GTQ'),('LOG','Logistik','GTQ');

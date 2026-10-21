@@ -1,12 +1,12 @@
-# Merkl · Especificación del MVP
+# Merk1 · Especificación del MVP
 
 ## Objetivo
 Subir el plan mensual en Excel y ver el control de cada campaña sin capturar a mano gasto ni resultados.
 Piloto: **Electroma · agosto 2026 · Meta y Google Ads**. Después: septiembre.
 
 ## Pantallas
-1. **Login** con código de 6 dígitos por correo (mismo patrón que ROMAN: usuario en Supabase + correo en `MERKL_ALLOWED_EMAILS`).
-2. **Cargar plan** (`/cargar`): se sube `Merkl_Plantilla_Carga_*.xlsx` → Merkl valida → muestra un resumen
+1. **Login** con código de 6 dígitos por correo (mismo patrón que ROMAN: usuario en Supabase + correo en `MERK1_ALLOWED_EMAILS`).
+2. **Cargar plan** (`/cargar`): se sube `Merk1_Plantilla_Carga_*.xlsx` → Merk1 valida → muestra un resumen
    (empresas, meses, líneas, total por partida, errores) → el usuario confirma → se guarda.
    Si el mes ya existe, la carga reemplaza su plan e insights (pide confirmación).
 3. **Plan** (`/plan/[empresa]/[mes]`): tabla de líneas con proyectado y nombre de campaña para copiar;
@@ -40,8 +40,8 @@ Alertas por correo, PDF de rendición de cuentas, TikTok/LinkedIn, CSV de Basis/
 calendario visual, histórico 2023, distribución anual del presupuesto. (El esquema ya los soporta.)
 
 ## Criterios de aceptación
-- `Merkl_Plantilla_Carga_Electroma_Ago2026.xlsx` carga sin errores: 26 líneas y plan de Q71,003.46.
-- Con los datos de agosto de Meta y Google, el control cuadra con `Merkl_Plan_Electroma_Ago2026.xlsx`
+- `Merk1_Plantilla_Carga_Electroma_Ago2026.xlsx` carga sin errores: 26 líneas y plan de Q71,003.46.
+- Con los datos de agosto de Meta y Google, el control cuadra con `Merk1_Plan_Electroma_Ago2026.xlsx`
   con diferencias menores a $0.10 por línea.
 - ELE2608-003 suma sus dos campañas (Search · Marca + Search · Categorías = $664.92).
 - Alcance único de referencia: ELE2608-015 YouTube 1,431,159 · ELE2608-017 Display 1,114,201 · ELE2608-014 Meta 3,053,405.
