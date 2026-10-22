@@ -3,3 +3,17 @@
 .vercel/
 .env*
 !.env.example
+
+# next.js
+/out/
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
