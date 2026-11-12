@@ -1,12 +1,7 @@
-import { inversionQ } from "../calculos";
+import { porPartida, type PartidaResumen } from "../plan/resumen";
 import type { Problema, Validacion } from "./tipos";
 
-export type PartidaResumen = {
-  partida: string;
-  disponible_q: number; // saldo anterior + presupuesto del mes
-  planeado_q: number;
-  diferencia_q: number; // disponible − planeado (negativo = se pasa)
-};
+export type { PartidaResumen };
 
 // Qué le pasa a plan_lineas al aplicar la carga (upsert por codigo + mes).
 export type CambiosLineas = {
@@ -39,18 +34,7 @@ export type LineasExistentes = Map<string, string[]>;
 
 export function resumir(validacion: Validacion, existentes?: LineasExistentes): Resumen {
   const meses = validacion.meses.map((m): ResumenMes => {
-    const planeado = new Map<string, number>();
-    for (const l of m.lineas) planeado.set(l.partida, (planeado.get(l.partida) ?? 0) + l.inversion_q);
-
-    // Primero las partidas en el orden de la hoja Presupuesto, luego las que solo aparecen en el Plan.
-    const nombres = [...new Set([...m.presupuestos.map((p) => p.partida), ...planeado.keys()])];
-    const partidas = nombres.map((partida): PartidaResumen => {
-      const p = m.presupuestos.find((x) => x.partida === partida);
-      const disponible = p ? inversionQ(p.saldo_anterior + p.presupuesto_mes, p.moneda, m.tipo_cambio) : 0;
-      const plan = planeado.get(partida) ?? 0;
-      return { partida, disponible_q: disponible, planeado_q: plan, diferencia_q: disponible - plan };
-    });
-
+    const partidas = porPartida(m.presupuestos, m.lineas, m.tipo_cambio);
     const planQ = m.lineas.reduce((suma, l) => suma + l.inversion_q, 0);
     return {
       empresa_codigo: m.empresa_codigo,
