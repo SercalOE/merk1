@@ -16,6 +16,7 @@ y Merk1 arma el control de cada campaña con datos de Meta y Google (vía Porter
 5. **El dinero cuenta en el mes en que se gastó.** El control de una línea suma el gasto de su código dentro de su mes.
 6. **No cambiar el contrato de la plantilla** (nombres de hojas y columnas) sin actualizar `docs/SPEC-MVP.md` y la plantilla.
 7. Revisar cada comando antes de aprobarlo; no usar modo automático.
+8. Por ahora se trabaja directo en main; cuando entre otra persona al proyecto, se usarán ramas y PR.
 
 ## Conceptos
 - **Línea del plan:** una fila del plan. Se identifica por `codigo` + mes. Ej. `ELE2609-007`.
