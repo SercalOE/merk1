@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function InicioPage() {
   return (
     <main className="flex flex-1 flex-col">
@@ -11,8 +13,14 @@ export default function InicioPage() {
           </button>
         </form>
       </header>
-      <div className="flex flex-1 items-center justify-center">
+      <div className="flex flex-1 flex-col items-center justify-center gap-6">
         <h1 className="text-5xl font-semibold tracking-tight">Merk1</h1>
+        <Link
+          href="/cargar"
+          className="rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700"
+        >
+          Cargar plan
+        </Link>
       </div>
     </main>
   );
